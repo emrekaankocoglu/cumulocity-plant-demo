@@ -4,6 +4,8 @@ import time
 import datetime
 from checkConnection import *
 input=""
+ledStatus=0
+os.system('sudo sh -c "echo none > /sys/class/leds/led0/trigger"')
 template= {
     "time":"" , 
     "temperature":"",
@@ -55,6 +57,8 @@ def c8ySend(files):
     template["light"]=int(convertLight(int(valueArray[0])))
     payload=json.dumps(template)
     os.system("tedge mqtt pub tedge/measurements '"+payload+"'" )
+    os.system('sudo sh -c "echo '+str(-ledStatus)+' > /sys/class/leds/led0/brightness"')
+    ledStatus~=ledStatus
 while True:
     if (checkConnection()):
 	    fileHandler()
