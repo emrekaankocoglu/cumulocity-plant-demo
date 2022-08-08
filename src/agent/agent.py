@@ -47,6 +47,7 @@ def fileHandler():
             os.remove(files)
 def c8ySend(files):
     global input
+    global ledStatus
     f=open(files,"r")
     input=f.read().strip()
     valueArray=checkValidity()
