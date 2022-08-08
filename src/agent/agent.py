@@ -54,7 +54,6 @@ def c8ySend(files):
     template["soilHumidity"]=int(convertHumid(int(valueArray[1])))
     template["light"]=int(convertLight(int(valueArray[0])))
     payload=json.dumps(template)
-    print(payload)
     os.system("tedge mqtt pub tedge/measurements '"+payload+"'" )
 while True:
     if (checkConnection()):

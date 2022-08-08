@@ -14,27 +14,32 @@ sudo echo "[Unit]
 Description=Device Agent-tedge
 After=multi-user.target
 
+StartLimitIntervalSec=60
+StartLimitBurst=10
+
 [Service]
+Restart=on-failure
+RestartSec=5
 Type=idle
 ExecStart=/usr/bin/python3 $dir/agent.py
 WorkingDirectory=$dir
 User=pi
-StandardOutput=null
-StandardError=null
 [Install]
 WantedBy=multi-user.target" > /lib/systemd/system/ifdeviceagent.service
 
 sudo echo "[Unit]
 Description=Device Connector
 After=multi-user.target
+StartLimitIntervalSec=60
+StartLimitBurst=10
 
 [Service]
+Restart=on-failure
+RestartSec=5
 Type=idle
 ExecStart=/usr/bin/python3 $dir/device.py
 WorkingDirectory=$dir
 User=pi
-StandardOutput=null
-StandardError=null
 [Install]
 WantedBy=multi-user.target" > /lib/systemd/system/ifdeviceconnector.service
 sudo chmod 644 /lib/systemd/system/ifdeviceagent.service
