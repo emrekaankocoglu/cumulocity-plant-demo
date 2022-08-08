@@ -58,7 +58,7 @@ def c8ySend(files):
     payload=json.dumps(template)
     os.system("tedge mqtt pub tedge/measurements '"+payload+"'" )
     os.system('sudo sh -c "echo '+str(-ledStatus)+' > /sys/class/leds/led0/brightness"')
-    ledStatus~=ledStatus
+    ledStatus=~ledStatus
 while True:
     if (checkConnection()):
 	    fileHandler()
