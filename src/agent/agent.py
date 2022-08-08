@@ -43,7 +43,10 @@ def fileHandler():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     for files in os.listdir(dir_path):
         if files.endswith('.m'):
-            c8ySend(files)
+            try:
+                c8ySend(files)
+            except:
+                pass
             os.remove(files)
 def c8ySend(files):
     global input
