@@ -44,3 +44,6 @@ User=pi
 WantedBy=multi-user.target" > /lib/systemd/system/ifdeviceconnector.service
 sudo chmod 644 /lib/systemd/system/ifdeviceagent.service
 sudo chmod 644 /lib/systemd/system/ifdeviceconnector.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now ifdeviceconnector.service
+sudo systemctl enable --now ifdeviceagent.service
