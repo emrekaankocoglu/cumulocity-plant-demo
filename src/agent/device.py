@@ -30,6 +30,7 @@ for i in range(10):
                 count=0
             if((not connStatus) and (count%5!=0)):
                 print("No connection")
+                time.sleep(1)
             else:
                 ti=datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()
                 f=open(ti+".temp","w")
