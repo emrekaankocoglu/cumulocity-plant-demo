@@ -31,7 +31,6 @@ for i in range(10):
                 count=0
             if((not connStatus) and (count%timeInterval!=0)):
                 print("No connection")
-                time.sleep(1)
             else:
                 ti=datetime.datetime.now().astimezone().replace(microsecond=0).isoformat() #create a measurement with the timestamp as the filename 
                 f=open(ti+".temp","w") 
@@ -39,7 +38,7 @@ for i in range(10):
                 f.close()
                 base = os.path.splitext(ti+".temp")[0]
                 os.rename(ti+".temp", base + ".m") #changing the file extension to avoid IO errors
-                time.sleep(0.1)
+            time.sleep(0.1)
             count+=1
     except:
         print("Transmission error, retrying...")
