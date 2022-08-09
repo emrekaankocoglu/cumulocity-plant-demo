@@ -26,10 +26,10 @@ for i in range(10):
             while(input.decode("utf-8"))!="s":
                 read=read+input.decode("utf-8")
                 input=ser.read()
-            if(count==100):
+            if(count==(timeInterval*10)):
                 connStatus=checkConnection() #check every 100 cycles the status of the c8y connection
                 count=0
-            if((not connStatus) and (count%(timeInterval*10)!=0)):
+            if((not connStatus) and (count%(timeInterval*5)!=0)):
                 print("No connection")
             else:
                 ti=datetime.datetime.now().astimezone().replace(microsecond=0).isoformat() #create a measurement with the timestamp as the filename 
@@ -38,7 +38,6 @@ for i in range(10):
                 f.close()
                 base = os.path.splitext(ti+".temp")[0]
                 os.rename(ti+".temp", base + ".m") #changing the file extension to avoid IO errors
-            time.sleep(0.1)
             count+=1
     except:
         print("Transmission error, retrying...")
