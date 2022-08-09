@@ -64,7 +64,7 @@ def c8ySend(files):
     os.system("tedge mqtt pub tedge/measurements '"+payload+"'" )
 while True:
     if (checkConnection()):
-	    fileHandler()
+        fileHandler()
         os.system('sudo sh -c "echo '+str(-ledStatus)+' > /sys/class/leds/led0/brightness"') #switch the LED to indicate transfer
         ledStatus=~ledStatus
     time.sleep(1)
