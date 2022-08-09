@@ -2,11 +2,11 @@
 A demo project to integrate representative sensors for a "flower" -actually, a plant would be more appropriate, but the name is already there:)- to Cumulocity platform.
 ## Microcontroller
 ### Setup
-An Arduino Uno/Nano can be used with LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Connect it to the agent via USB or any serial-capable connection, and change the agent's device.py to use the appropriate port. You can get its connected serial port by executing the following command before and after the connection:
+An Arduino Uno/Nano can be used with a DHT11 -or some similar digital temperature sensor- on pin D12,  LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Connect it to the agent via USB or any serial-capable connection, and change the agent's device.py to use the appropriate port. You can get its connected serial port by executing the following command before and after the connection:
 ```
 ls /dev/tty*
 ```
-Any added file between executions will represent the connected serial port for the microcontroller.
+Any added line between executions will represent the connected serial port for the microcontroller.
 ### Communication
 Any data "packet" that is sent by the microcontroller will look like this:
 ```
