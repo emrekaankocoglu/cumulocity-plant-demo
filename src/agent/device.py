@@ -26,7 +26,7 @@ for i in range(10):
             while(input.decode("utf-8"))!="s":
                 read=read+input.decode("utf-8")
                 input=ser.read()
-            if(count==1000):
+            if(count==100):
                 connStatus=checkConnection() #check every 100 cycles the status of the c8y connection
                 count=0
             if((not connStatus) and (count%(timeInterval*10)!=0)):
