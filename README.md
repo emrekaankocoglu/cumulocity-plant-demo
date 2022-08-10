@@ -69,7 +69,6 @@ With this case, repeat the steps described in Microcontroller Setup section abou
 
 If the program raises a:
 ```
-
 ConnectionError: Unreliable serial communication: Number of failed transmissions exceeded threshold
 ```
 Cycle the connection to the microcontroller and restart either the service or the agent itself and hope it fixes itself:) If it does not, it is probably a faulty cable or microcontroller altogether. Try the Sensors troubleshooting to see if you can get any data.
