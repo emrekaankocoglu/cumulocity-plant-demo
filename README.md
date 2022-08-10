@@ -2,7 +2,9 @@
 A demo project to integrate representative sensors for a "flower" -actually, a plant would be more appropriate, but the name is already there:)- to Cumulocity platform, either in realtime or with batch proccessing when the Internet connection is re-established.
 ## Microcontroller
 ### Setup
-An Arduino Uno/Nano can be used with a DHT11 -or some similar digital temperature sensor- on pin D12,  LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Download DHT Library by Adafruit for Arduino from the Library Manager of Arduino IDE, connect the Arduino to your computer and upload the sketch in the microcontroller folder with Arduino IDE. Connect it to the agent via USB or any serial-capable connection, and edit the agent's device.py-line 6  to use the appropriate port:
+An Arduino Uno/Nano can be used with a DHT11 -or some similar digital temperature sensor- on pin D12,  LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Here is a circuit diagram on a breadboard:
+![Diagram] (docs/if_v1.png)
+Download DHT Library by Adafruit for Arduino from the Library Manager of Arduino IDE, connect the Arduino to your computer and upload the sketch in the microcontroller folder with Arduino IDE. Connect it to the agent via USB or any serial-capable connection, and edit the agent's device.py-line 6  to use the appropriate port:
 Line 6:
 ```
 ser = serial.Serial('/dev/ttyUSB0', 9600) #initiate serial connection-edit the ttyUSBxx to correct port (default for RPi)
