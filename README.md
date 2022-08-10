@@ -25,18 +25,18 @@ Clone the repository, edit the agent.py as described in Microcontroller Setup se
 ### Configuration
 Although they can also be calibrated with the potentiometer connected to analog sensors, one can also change the interval and values of the converted sensor data to Cumulocity in the convertLight and convertHumid blocks of the agent.py. The algorithm is pretty self-explanatory, but keep in mind that they are percentages -not necessarily, but the default is this-, and soil humidity sensor will output 1023 as plain dry, and 0 as it gets more moist, which is inverse to the light where 1023 is the brighest.
 Additionally, you can edit the variable timeInterval (*default 5s*) in device.py to determine the interval between two measurements stored -to be sent to Cumulocity afterwards- when there exists no Internet connection, and the interval it checks whether there is an Internet connection or not (time interval for this is *2 timeIntervals*)
-### Troubleshooting
+## Troubleshooting
 Make sure you followed the setup fully. The first step with any problem, is actually unplug every connection to the agent, and plug it back in. With the restart, everything should be reinitialized which solves %90 of the problems:)
-#### No data is sent to Cumulocity
-##### No blink -light is solid or gone-
+### No data is sent to Cumulocity
+#### No blink -light is solid or gone-
 The agent device probably doesn't have the connection to the Internet. Make sure it does, if it does, then a failure repeated too many times. Have it restarted. If it still does not work, follow service troubleshooting and microcontroller troubleshooting steps.
-##### Blink, but no data sent
+#### Blink, but no data sent
 Take a look at the agent directory. If you notice files with .m or .temp extensions are created, try to look at their contents to check if they fit to the format in the Communication section, and the checksums are correct. If it does not comply, try the microcontroller troubleshooting steps. If it does, run the following:
 ```
 sudo tedge mqtt sub tedge/errors
 ```
 This will show any transmission errors with Cumulocity's MQTT service. If there is any, there is probably a misconfiguration of thin-edge.io. Try to run start.sh again, or follow the troubleshooting steps on thin-edge.io's guide.
 If there are no files with .m or .temp being created and deleted, check service troubleshooting steps with the emphasis on ifdevicecontroller service.
-#### Data sent to Cumulocity is inaccurate
+### Data sent to Cumulocity is inaccurate
 Follow microcontroller troubleshooting steps. Make sure you calibrated the analog sensors as you like, and edited the conversion block of agent.py correctly if you have done so. If no fault there, and the values are exactly as you expect, try to get the measurements with deviceID from Cumulocity's REST API to see if you can spot the problem.
-#### Microcontroller Troubleshooting
+### Microcontroller Troubleshooting
