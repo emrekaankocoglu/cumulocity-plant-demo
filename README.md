@@ -3,7 +3,7 @@ A demo project to integrate representative sensors for a "flower" -actually, a p
 ## Microcontroller
 ### Setup
 An Arduino Uno/Nano can be used with a DHT11 -or some similar digital temperature sensor- on pin D12,  LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Here is a circuit diagram on a breadboard:
-![Diagram] (docs/if_v1.png)
+![Diagram](docs/if_v1.png)
 Download DHT Library by Adafruit for Arduino from the Library Manager of Arduino IDE, connect the Arduino to your computer and upload the sketch in the microcontroller folder with Arduino IDE. Connect it to the agent via USB or any serial-capable connection, and edit the agent's device.py-line 6  to use the appropriate port:
 Line 6:
 ```
