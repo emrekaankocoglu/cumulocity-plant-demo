@@ -1,5 +1,5 @@
-# Cumulocity Flower Demo
-A demo project to integrate representative sensors for a "flower" -actually, a plant would be more appropriate, but the name is already there:)- to Cumulocity platform, either in realtime or with batch proccessing when the Internet connection is re-established.
+# Cumulocity Plant Demo
+A demo project to integrate representative sensors for a plant to Cumulocity platform, either in realtime or with batch proccessing when the Internet connection is re-established.
 ## Microcontroller
 ### Setup
 An Arduino Uno/Nano can be used with a DHT11 -or some similar digital temperature sensor- on pin D12,  LDR connected to pin A0 and the soil humidity sensor to pin A2 with a pull-up resistor or a potentiometer in between both their respective ground connections-close to 10k Ohms would be appropriate-. Here is a circuit diagram on a breadboard:
