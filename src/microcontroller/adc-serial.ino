@@ -14,15 +14,15 @@ void loop() {
 void requestEvent(){
   char str[20];
   int light=analogRead(A0);
+  delay(50);
   int soilHumid=analogRead(A2);
+  delay(50);
   int airTemp=int(dht.readTemperature());
   int airHumid=int(dht.readHumidity());
   int checksumAnalog=light^soilHumid;
   int checksumDigital=airTemp^airHumid;
   String lightSensor= String(light,DEC);
-  delay(50);
   String humidSensor= String(soilHumid,DEC);
-  delay(50);
   String payload=String("~"+lightSensor+"-"+humidSensor+"-"+String(airTemp,DEC)+"-"+String(airHumid,DEC)+"~");
   payload.toCharArray(str,20);
   Serial.print("s");
