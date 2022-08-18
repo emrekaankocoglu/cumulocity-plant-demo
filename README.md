@@ -29,7 +29,7 @@ checksumDigital=temperature^humidity
 Any failure in the transmission of the data "packet" -a bit flip, unstable connection etc.- will be caught by the agent, and will not be sent to Cumulocity. You can monitor the transmission by connecting the microcontroller to any serial monitor -e.g. your computer- to see whether the data sent is correct and sensor readings are in order.
 ## Agent
 ### Setup
-Clone the repository, edit the agent.py as described in Microcontroller Setup section if needed, edit the URL in checkConnection.py to your tenant's URL and run the script start.sh on the same directory after editing the service user "pi" if required. The systemd services ifdeviceconnector.service -serial connection- and ifdeviceagent.service -data agent- will already be configured and enabled to get them started at every startup. The light will blink green whenever a transmission is tried on the agent side to Cumulocity.
+Clone the repository, edit wMioConfig file with webMethods.io workflow webhook parameters and a unique device name, edit the agent.py as described in Microcontroller Setup section if needed, edit the URL in checkConnection.py to your tenant's URL and run the script start.sh on the same directory after editing the service user "pi" if required. The systemd services ifdeviceconnector.service -serial connection- and ifdeviceagent.service -data agent- will already be configured and enabled to get them started at every startup. The light will blink green whenever a transmission is tried on the agent side to Cumulocity.
 
 As the device targeted is a Raspberry Pi, user pi is the owner of the services, so make sure that user is a sudoer and requires no password for sudo, or change the User parts in start.sh.
 ### Configuration
